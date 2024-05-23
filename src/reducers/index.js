@@ -1,19 +1,19 @@
-// src/reducers/index.js
-
-import { combineReducers } from 'redux';
 import { FETCH_USERS, UPDATE_USER } from '../actions';
 
-const usersReducer = (state = [], action) => {
+const initialState = {
+  users: [],
+};
+
+export default function userReducer(state = initialState, action) {
   switch (action.type) {
     case FETCH_USERS:
-      return action.payload;
+      return { ...state, users: action.payload };
     case UPDATE_USER:
-      return state.map(user => (user.id === action.payload.id ? action.payload : user));
+      return {
+        ...state,
+        users: state.users.map(user => user.id === action.payload.id ? action.payload : user)
+      };
     default:
       return state;
   }
-};
-
-export default combineReducers({
-  users: usersReducer
-});
+}

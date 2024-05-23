@@ -1,4 +1,3 @@
-// src/actions/index.js
 import axios from 'axios';
 
 export const FETCH_USERS = 'FETCH_USERS';

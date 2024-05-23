@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { updateUser } from '../actions';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const UserEdit = ({ user, updateUser }) => {
   // Declare state variables unconditionally
