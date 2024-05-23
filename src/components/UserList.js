@@ -23,7 +23,9 @@ const UserList = ({ users, fetchUsers }) => {
             <p className="text-lg font-semibold mb-2">Name: {user.name}</p>
             <p className="text-gray-600 mb-2">Email: {user.email}</p>
             <p className="text-gray-600 mb-2">Occupation: {user.occupation}</p>
-            <p className="text-gray-600 mb-2">Bio: {user.bio}</p>
+            <p className="text-gray-600 mb-2">
+              Bio: {user.bio ? user.bio.split('\n')[0] : 'No bio available'} {/* Display the first line of the bio */}
+            </p>
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleEdit(user.id)}>Edit</button>
           </div>
         ))}
